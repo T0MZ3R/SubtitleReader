@@ -1,0 +1,53 @@
+﻿<Window x:Class="SubtitleReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SubtitleReader"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="589" Width="1000" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Background="Transparent" KeyDown="Window_KeyDown" Closing="Window_Closing">
+    <Grid>
+        <StackPanel Grid.RowSpan="2">
+            <MediaElement x:Name="Video" Source="C:\Users\Tom\Desktop\Lecteur\eren-transform.mp4" LoadedBehavior="Manual"/>
+        </StackPanel>
+        <Label x:Name="lblSubtitle" Content="" Margin="10,477,10,10" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"></Label>
+        <Grid x:Name="gridControl" Margin="0,0,0,510" MouseEnter="gridControl_MouseEnter" MouseLeave="gridControl_MouseLeave">
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
+            <Button Margin="472,0" Click="btnPlay_Click" Background="Transparent" BorderBrush="Transparent">
+                <ContentControl>
+                    <Image x:Name="pctPlay" Source="Ressources/play.png" />
+                </ContentControl>
+            </Button>
+            <Button Margin="422,0,522,0" Click="btnBackward_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Image Source="Ressources/backward.png"/>
+            </Button>
+            <Button Margin="522,0,422,0" Click="btnForward_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Image Source="Ressources/forward.png"/>
+            </Button>
+            <Label x:Name="lblTime" Content="00:00:00.000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="130" FontSize="20" Height="40" FontWeight="Bold"/>
+            <Button Background="Transparent" BorderBrush="Transparent" Margin="748,0,186,0">
+                <Image Source="Ressources/subtitles.png" />
+            </Button>
+        </Grid>
+    </Grid>
+
+
+</Window>

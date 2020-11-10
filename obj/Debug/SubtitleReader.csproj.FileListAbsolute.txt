@@ -1,0 +1,15 @@
+D:\dev\VisualStudio\SubtitleReader\bin\Debug\SubtitleReader.exe.config
+D:\dev\VisualStudio\SubtitleReader\bin\Debug\SubtitleReader.exe
+D:\dev\VisualStudio\SubtitleReader\bin\Debug\SubtitleReader.pdb
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\SubtitleReader.csprojAssemblyReference.cache
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\MainWindow.g.cs
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\App.g.cs
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\SubtitleReader_MarkupCompile.cache
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\SubtitleReader_MarkupCompile.lref
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\MainWindow.baml
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\SubtitleReader.g.resources
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\SubtitleReader.Properties.Resources.resources
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\SubtitleReader.csproj.GenerateResource.cache
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\SubtitleReader.csproj.CoreCompileInputs.cache
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\SubtitleReader.exe
+D:\dev\VisualStudio\SubtitleReader\obj\Debug\SubtitleReader.pdb
