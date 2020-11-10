@@ -60,7 +60,7 @@ namespace SubtitleReader
                             int.TryParse(startSplit[0], out int h);
                             int.TryParse(startSplit[1], out int m);
                             float.TryParse(startSplit[2], out float s);
-                            //Calcul second
+                            //Calcul milisecond
                             m += h * 60;
                             s += +m * 60;
                             start = s*1000;
@@ -70,7 +70,7 @@ namespace SubtitleReader
                             int.TryParse(endSplit[0], out h);
                             int.TryParse(endSplit[1], out m);
                             float.TryParse(endSplit[2], out s);
-                            //Calcul second
+                            //Calcul milisecond
                             m += +h * 60;
                             s += +m * 60;
                             end = s*1000;

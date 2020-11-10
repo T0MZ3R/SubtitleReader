@@ -15,12 +15,12 @@
             <Grid.Background>
                 <ImageBrush/>
             </Grid.Background>
-            <Button Margin="472,0" Click="btnPlay_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button Margin="472,0" Click="btnPlay_Click" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Focusable="False">
                 <ContentControl>
                     <Image x:Name="pctPlay" Source="Ressources/play.png" />
                 </ContentControl>
             </Button>
-            <Button Margin="422,0,522,0" Click="btnBackward_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin="0.5,0.5">
+            <Button Margin="422,0,522,0" Click="btnBackward_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin="0.5,0.5" Focusable="False">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -29,9 +29,9 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Button.RenderTransform>
-                <Image Source="Ressources/backward.png"/>
+                <Image Source="Ressources/backward.png" Cursor="Hand"/>
             </Button>
-            <Button Margin="522,0,422,0" Click="btnForward_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin="0.5,0.5">
+            <Button Margin="522,0,422,0" Click="btnForward_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin="0.5,0.5" Focusable="False">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -40,11 +40,11 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Button.RenderTransform>
-                <Image Source="Ressources/forward.png"/>
+                <Image Source="Ressources/forward.png" Cursor="Hand"/>
             </Button>
             <Label x:Name="lblTime" Content="00:00:00.000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="130" FontSize="20" Height="40" FontWeight="Bold"/>
-            <Button Background="Transparent" BorderBrush="Transparent" Margin="748,0,186,0">
-                <Image Source="Ressources/subtitles.png" />
+            <Button Background="Transparent" BorderBrush="Transparent" Margin="748,0,186,0" Click="Button_Click" Focusable="False">
+                <Image Source="Ressources/subtitles.png" Cursor="Hand" />
             </Button>
         </Grid>
     </Grid>

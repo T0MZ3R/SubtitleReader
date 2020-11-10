@@ -13,6 +13,7 @@ namespace SubtitleReader
 {
     public static class MediaControl
     {
+        public static Boolean subtitleState;
         static string content;
         static double mediaTime;
         static Boolean canPrintSubtitle;
@@ -22,6 +23,7 @@ namespace SubtitleReader
             content = "";
             mediaTime = 0;
             canPrintSubtitle = false;
+            subtitleState = true;
         }
         private static MediaState GetMediaState(MediaElement myMedia)
         {
@@ -47,11 +49,11 @@ namespace SubtitleReader
         }
         public static void MooveBackward(MediaElement video)
         {
-            video.Position = new TimeSpan(0,0,0,0, (int)video.Position.TotalMilliseconds-1000);
+            video.Position = new TimeSpan(0,0,0,0, (int)video.Position.TotalMilliseconds-5000);
         }
         public static void MooveForward(MediaElement video)
         {
-            video.Position = new TimeSpan(0,0,0,0, (int)video.Position.TotalMilliseconds+1000);
+            video.Position = new TimeSpan(0,0,0,0, (int)video.Position.TotalMilliseconds+5000);
         }
         public static void PrintTimer(MediaElement Video, Label lblTime)
         {
@@ -104,6 +106,17 @@ namespace SubtitleReader
                     break;
                 }
             }
+        }
+
+        public static void ActivateCc(Label lblSubtitle)
+        {
+            if (subtitleState)
+            {
+                subtitleState = false;
+                lblSubtitle.Content = "";
+            }
+            else
+                subtitleState = true;
         }
     }
 }

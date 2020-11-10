@@ -57,12 +57,15 @@ namespace SubtitleReader
         private void dispatcherTick(object sender, EventArgs e)
         {
             MediaControl.PrintTimer(Video, lblTime);
-            MediaControl.PrintSubtitle(lblSubtitle);
-
-            if (tt.Status != TaskStatus.Running)
+            if (MediaControl.subtitleState)
             {
-                tt = new Task(() => MediaControl.EditSubtitleAsync(Video, lblSubtitle, subtitle));
-                tt.Start();
+                MediaControl.PrintSubtitle(lblSubtitle);
+
+                if (tt.Status != TaskStatus.Running)
+                {
+                    tt = new Task(() => MediaControl.EditSubtitleAsync(Video, lblSubtitle, subtitle));
+                    tt.Start();
+                }
             }
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -112,6 +115,9 @@ namespace SubtitleReader
                 case Key.Right:
                     MediaControl.MooveForward(Video);
                     break;
+                case Key.C:
+                    MediaControl.ActivateCc(lblSubtitle);
+                    break;
             }
         }
 
@@ -119,5 +125,22 @@ namespace SubtitleReader
         {
             dispatcherTimer.Stop();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MediaControl.ActivateCc(lblSubtitle);
+        }
     }
 }
+
+
+// TODO:
+/*
+ * Interface pour choisir la vidéo
+ * Interface pour choisir les sous titres
+ * Synchroniser le srt du eren-trasnform
+ * 
+ * 
+ * 
+ * 
+ */
