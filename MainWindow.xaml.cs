@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -29,12 +31,14 @@ namespace SubtitleReader
         public MainWindow()
         {
             InitializeComponent();
+            /*
             MediaControl.InitStaticVar();
             InitDispatcherTimer();
             InitSubtitle();
             InitTask();
             Video.ScrubbingEnabled = true;
             Video.Pause();
+            */
         }
 
         private void InitTask()
@@ -44,7 +48,7 @@ namespace SubtitleReader
 
         private void InitSubtitle()
         {
-            subtitle = new Subtitle();
+            subtitle = new Subtitle(textBoxOpenSrt.Text);
         }
 
         private void InitDispatcherTimer()
@@ -123,12 +127,48 @@ namespace SubtitleReader
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            dispatcherTimer.Stop();
+            //dispatcherTimer.Stop();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MediaControl.ActivateCc(lblSubtitle);
+        }
+
+        private void btnOpenVideo_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+                textBoxOpenVideo.Text = openFileDialog.FileName;
+        }
+
+        private void btnOpenSrt_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+                textBoxOpenSrt.Text = openFileDialog.FileName;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (!(textBoxOpenVideo.Text == "VideoFile" && textBoxOpenSrt.Text == "SubtitleFile"))
+            {
+                Video.Source = new Uri(textBoxOpenVideo.Text);
+                MediaControl.InitStaticVar();
+                InitDispatcherTimer();
+                InitSubtitle();
+                InitTask();
+                Video.ScrubbingEnabled = true;
+                Video.Pause();
+
+                gridMenu.Opacity = 0;
+                gridPlayer.Opacity = 1;
+            }
+            else
+            {
+                textBoxOpenVideo.BorderBrush = Brushes.Red;
+                textBoxOpenSrt.BorderBrush = Brushes.Red;
+            }
         }
     }
 }

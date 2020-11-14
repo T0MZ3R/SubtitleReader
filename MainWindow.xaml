@@ -5,49 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SubtitleReader"
         mc:Ignorable="d"
-        Title="MainWindow" Height="589" Width="1000" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Background="Transparent" KeyDown="Window_KeyDown" Closing="Window_Closing">
+        Title="Subtitle Reader" Height="589" Width="1000" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Background="Transparent" KeyDown="Window_KeyDown" Closing="Window_Closing" Icon="Ressources/play.png">
     <Grid>
-        <StackPanel Grid.RowSpan="2">
-            <MediaElement x:Name="Video" Source="C:\Users\Tom\Desktop\Lecteur\eren-transform.mp4" LoadedBehavior="Manual"/>
-        </StackPanel>
-        <Label x:Name="lblSubtitle" Content="" Margin="10,477,10,10" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"></Label>
-        <Grid x:Name="gridControl" Margin="0,0,0,510" MouseEnter="gridControl_MouseEnter" MouseLeave="gridControl_MouseLeave">
-            <Grid.Background>
-                <ImageBrush/>
-            </Grid.Background>
-            <Button Margin="472,0" Click="btnPlay_Click" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Focusable="False">
-                <ContentControl>
-                    <Image x:Name="pctPlay" Source="Ressources/play.png" />
-                </ContentControl>
+        <Grid x:Name="gridMenu" Background="White">
+            <Image Height="100" Source="Ressources/logo.png" Margin="0,0,0,460"/>
+            <Label Content="Subtitle Reader" HorizontalAlignment="Left" Margin="372,85,0,0" VerticalAlignment="Top" Height="64" Width="255" FontSize="36"/>
+
+            <TextBox x:Name="textBoxOpenVideo" TextWrapping="Wrap" Text="VideoFile" Margin="88,186,88,346"/>
+            <Button x:Name="btnOpenVideo" Margin="866,186,88,346" Background="{x:Null}" BorderBrush="Black" Click="btnOpenVideo_Click" Focusable="False">
+                <Label Content="..." Height="21" Width="16" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
-            <Button Margin="422,0,522,0" Click="btnBackward_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin="0.5,0.5" Focusable="False">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-5"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-                <Image Source="Ressources/backward.png" Cursor="Hand"/>
+
+            <TextBox x:Name="textBoxOpenSrt" TextWrapping="Wrap" Text="SubtitleFile" Margin="88,252,88,280"/>
+            <Button x:Name="btnOpenSrt" Margin="866,252,88,280" Background="{x:Null}" BorderBrush="Black" Click="btnOpenSrt_Click" Focusable="False">
+                <Label Content="..." Height="21" Width="16" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
-            <Button Margin="522,0,422,0" Click="btnForward_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin="0.5,0.5" Focusable="False">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="5"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-                <Image Source="Ressources/forward.png" Cursor="Hand"/>
-            </Button>
-            <Label x:Name="lblTime" Content="00:00:00.000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="130" FontSize="20" Height="40" FontWeight="Bold"/>
-            <Button Background="Transparent" BorderBrush="Transparent" Margin="748,0,186,0" Click="Button_Click" Focusable="False">
-                <Image Source="Ressources/subtitles.png" Cursor="Hand" />
-            </Button>
+
+            <Button Content="Play" HorizontalAlignment="Left" Margin="88,372,0,0" VerticalAlignment="Top" Width="818" Height="92" Background="{x:Null}" Click="Button_Click_1" Focusable="False"/>
+
+        </Grid>
+        <Grid x:Name="gridPlayer" Opacity="0">
+            <StackPanel Grid.RowSpan="2">
+                <MediaElement x:Name="Video" LoadedBehavior="Manual"/>
+            </StackPanel>
+            <Label x:Name="lblSubtitle" Content="" Margin="10,477,10,10" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"></Label>
+            <Grid x:Name="gridControl" Margin="0,0,0,510" MouseEnter="gridControl_MouseEnter" MouseLeave="gridControl_MouseLeave">
+                <Grid.Background>
+                    <ImageBrush/>
+                </Grid.Background>
+                <Button Margin="472,0" Click="btnPlay_Click" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Focusable="False">
+                    <ContentControl>
+                        <Image x:Name="pctPlay" Source="Ressources/play.png" />
+                    </ContentControl>
+                </Button>
+                <Button Margin="422,0,522,0" Click="btnBackward_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin="0.5,0.5" Focusable="False">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Image Source="Ressources/backward.png" Cursor="Hand"/>
+                </Button>
+                <Button Margin="522,0,422,0" Click="btnForward_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin="0.5,0.5" Focusable="False">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Image Source="Ressources/forward.png" Cursor="Hand"/>
+                </Button>
+                <Label x:Name="lblTime" Content="00:00:00.000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="130" FontSize="20" Height="40" FontWeight="Bold"/>
+                <Button Background="Transparent" BorderBrush="Transparent" Margin="748,0,186,0" Click="Button_Click" Focusable="False">
+                    <Image Source="Ressources/subtitles.png" Cursor="Hand" />
+                </Button>
+            </Grid>
         </Grid>
     </Grid>
-
-
 </Window>

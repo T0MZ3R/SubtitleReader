@@ -11,15 +11,17 @@ namespace SubtitleReader
     {
         readonly Dictionary<int, Srt> allSrt;
         public Dictionary<int, Srt> AllSrt { get => allSrt; }
-        public Subtitle()
+        private string path;
+        public Subtitle(string m_path)
         {
+            path = m_path;
             allSrt = new Dictionary<int, Srt>();
             srtParser();
         }
 
         private void srtParser()
         {
-            string path = @"C:\Users\Tom\Desktop\Lecteur\eren-transform.srt";
+            //string path = @"C:\Users\Tom\Desktop\Lecteur\eren-transform.srt";
             using (StreamReader sr = new StreamReader(path))
             {
                 // Init var
