@@ -172,15 +172,3 @@ namespace SubtitleReader
         }
     }
 }
-
-
-// TODO:
-/*
- * Interface pour choisir la vidéo
- * Interface pour choisir les sous titres
- * Synchroniser le srt du eren-trasnform
- * 
- * 
- * 
- * 
- */
